@@ -4,7 +4,7 @@ from search import graph
 
 def test_bfs_traversal():
     """
-    TODO: Write your unit test for a breadth-first
+    Write your unit test for a breadth-first
     traversal here. Create an instance of your Graph class 
     using the 'tiny_network.adjlist' file and assert 
     that all nodes are being traversed (ie. returns 
@@ -12,14 +12,14 @@ def test_bfs_traversal():
     """
     g = graph.Graph("data/tiny_network.adjlist")
     out = g.bfs("Martin Kampmann")
-    assert len(out) == 30
+    assert len(out) == 30 # assert all nodes were traversed
     kampmann_children = ['33483487', '32790644', '31806696', '31626775', '31540829']
     for kampmann_child in kampmann_children:
-        assert kampmann_child in out[1:6]     
+        assert kampmann_child in out[1:6] # assert search was breadth-first
 
 def test_bfs():
     """
-    TODO: Write your unit test for your breadth-first 
+    Write your unit test for your breadth-first 
     search here. You should generate an instance of a Graph
     class using the 'citation_network.adjlist' file 
     and assert that nodes that are connected return 
@@ -30,10 +30,12 @@ def test_bfs():
     """
     g = graph.Graph("data/tiny_network.adjlist")
     out = g.bfs("Martin Kampmann", "Luke Gilbert")
-    assert len(out) == 3
+    # check that the shortest path was found
+    assert len(out) == 3 
     assert out[0] == "Martin Kampmann"
     assert out[1] == "33483487"
     assert out[2] == "Luke Gilbert"
 
+    # check that None is returned when no path is found
     out = g.bfs("Martin Kampmann", "Thomas Mazumder")
     assert out == None

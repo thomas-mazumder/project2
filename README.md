@@ -1,3 +1,5 @@
+! [BuildStatus] (https://github.com/ <thomas-mazumder> /Project2/workflows/Project2/badge.svg?event=push)
+
 # Project 2
 Breadth-first search
 
